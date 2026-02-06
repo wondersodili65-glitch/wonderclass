@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Class Registration - 4im Digitals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa726);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #ffa726;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Main Layout */
+        .layout-wrapper {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Three Cards Section */
+        .cards-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1), transparent);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:nth-child(1)::before {
+            background: radial-gradient(circle, rgba(30, 60, 114, 0.1), transparent);
+        }
+
+        .stat-card:nth-child(2)::before {
+            background: radial-gradient(circle, rgba(255, 160, 38, 0.1), transparent);
+        }
+
+        .stat-card:nth-child(3)::before {
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.1), transparent);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card:nth-child(1):hover {
+            border-color: #1e3c72;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        }
+
+        .stat-card:nth-child(2):hover {
+            border-color: #ffa726;
+            background: linear-gradient(135deg, #fff8f0 0%, #fff5e6 100%);
+        }
+
+        .stat-card:nth-child(3):hover {
+            border-color: #4caf50;
+            background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card:nth-child(2) .stat-number {
+            background: linear-gradient(135deg, #ffa726, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-card:nth-child(3) .stat-number {
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Side Stats Card */
+        .side-stats-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .side-stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.02) 0%, rgba(255, 160, 38, 0.02) 100%);
+            z-index: 0;
+        }
+
+        .side-stats-card:hover {
+            border-color: #1e3c72;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .side-stats-title {
+            font-size: 1.3rem;
+            color: #1e3c72;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-stat-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .side-stat-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .side-stat-label {
+            font-size: 0.9rem;
+            color: #999;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .side-stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Founder Card */
+        .founder-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .founder-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.03) 0%, rgba(255, 160, 38, 0.03) 100%);
+            z-index: 0;
+        }
+
+        .founder-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-title {
+            font-size: 1.2rem;
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .founder-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1e3c72, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #555;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            border-left: 5px solid #ffa726;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .quote-author {
+            font-size: 0.9rem;
+            color: #999;
+            text-align: right;
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .layout-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .layout-wrapper > :first-child {
+                order: 2;
+            }
+
+            .layout-wrapper > :last-child {
+                order: 1;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            .cards-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .side-stats-card {
+                padding: 2rem;
+            }
+
+            .founder-card {
+                padding: 2rem;
+            }
+
+            .founder-name {
+                font-size: 1.8rem;
+            }
+
+            .quote {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-icon {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .founder-name {
+                font-size: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Footer Decoration */
+        .footer-accent {
+            height: 5px;
+            background: linear-gradient(90deg, #1e3c72, #ff6b6b, #ffa726, #4caf50);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">4D</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#information">Information</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="layout-wrapper">
+            <!-- Left Section - Side Stats Card -->
+            <div class="side-stats-card">
+                <div class="side-stats-title">Registration Summary</div>
+                
+                <div class="side-stat-item">
+                    <div class="side-stat-label">Active Registrations</div>
+                    <div class="side-stat-value">142</div>
+                </div>
+
+                <div class="side-stat-item">
+                    <div class="side-stat-label">Pending Registrations</div>
+                    <div class="side-stat-value">28</div>
+                </div>
+
+                <div class="side-stat-item">
+                    <div class="side-stat-label">Total Registrations</div>
+                    <div class="side-stat-value">170</div>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div>
+                <!-- Three Stats Cards -->
+                <div class="cards-section">
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-number">142</div>
+                        <div class="stat-label">Active Registrations</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">Pending Registrations</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-number">170</div>
+                        <div class="stat-label">Total Registrations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Founder Card -->
+        <div class="founder-card">
+            <div class="founder-content">
+                <div class="founder-title">Meet Our Founder</div>
+                <div class="founder-name">Shakir Ahmed</div>
+                
+                <p style="color: #666; line-height: 1.8; margin-bottom: 1rem;">
+                    A passionate educator and tech entrepreneur dedicated to empowering the next generation of programmers. With over 10 years of experience in software development and education, Shakir Ahmed founded 4im Digitals to make quality programming education accessible to everyone.
+                </p>
+
+                <div class="quote">
+                    "Code is poetry written for machines and humans alike. Every line you write shapes not just technology, but the future itself."
+                    <div class="quote-author">— Shakir Ahmed</div>
+                </div>
+
+                <button class="cta-button">🚀 Register Today</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Accent -->
+    <div class="footer-accent"></div>
+</body>
+</html>

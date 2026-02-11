@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Our Doctors - Find expert specialists at ENNY Medical">
+  <title>Doctors & Specialists - ENNY Medical & Diagnostics</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <style>
+    #user-menu {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="emergency-banner">
+    <div class="container flex-between">
+      <span>🚨 24/7 EMERGENCY CARE AVAILABLE</span>
+      <span class="emergency-contact-display">📞 09023840750</span>
+        <span>📧 ikwulonoisaac1979@gmail.com</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-main">
+      <div class="container flex-between">
+        <div class="logo">
+          <img src="../assets/images/enny.jpg" alt="ENNY Medical Logo" class="logo-img">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="diagnostics.html">Diagnostics</a></li>
+            <li><a href="patient-resources.html">Patient Portal</a></li>
+            <li><a href="emergency-contact.html">Emergency</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta" style="display: flex; gap: var(--spacing-md); align-items: center; position: relative;">
+          <a href="patient-resources.html#booking" class="btn btn-primary">Book Appointment</a>
+          <a href="emergency-contact.html" class="btn btn-secondary">Emergency</a>
+          <div id="auth-link" style="position: relative;">
+            <a href="login.html">🔐 Login / Sign Up</a>
+          </div>
+          <div id="user-menu"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="padding: var(--spacing-xl) 0;">
+    <div class="container">
+      <h1 style="color: white; text-align: center;">Our Expert Doctors</h1>
+      <p style="text-align: center; color: rgba(255, 255, 255, 0.9); font-size: var(--font-size-large);">Highly qualified specialists with years of experience</p>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <div class="container">
+      <div style="display: flex; gap: var(--spacing-lg); margin-bottom: var(--spacing-xl); flex-wrap: wrap;">
+        <label style="flex: 1; min-width: 200px;">
+          <strong>Filter by Specialty:</strong>
+          <select id="specialtyFilter" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; border: 1px solid var(--border-gray); border-radius: 6px;">
+            <option value="">All Specialties</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Orthopedics">Orthopedics</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Neurology">Neurology</option>
+          </select>
+        </label>
+        <label style="flex: 1; min-width: 200px;">
+          <strong>Experience (Years):</strong>
+          <select id="experienceFilter" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem; border: 1px solid var(--border-gray); border-radius: 6px;">
+            <option value="0">All Levels</option>
+            <option value="5">5+ Years</option>
+            <option value="10">10+ Years</option>
+            <option value="15">15+ Years</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="team-grid" style="margin-bottom: var(--spacing-xl);">
+        <div class="team-card">
+          <div class="team-image">👩‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Sarah Johnson</h4>
+            <p class="team-role">Cardiology</p>
+            <p class="team-bio">MD, DM Cardiology | 15+ Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.8/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👨‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Michael Chen</h4>
+            <p class="team-role">Orthopedics</p>
+            <p class="team-bio">MS Ortho | 12 Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.7/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👩‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Emily Rodriguez</h4>
+            <p class="team-role">Pediatrics</p>
+            <p class="team-bio">MD Pediatrics | 8 Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.9/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👨‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. James Wilson</h4>
+            <p class="team-role">General Medicine</p>
+            <p class="team-bio">MD, FRCP | 20 Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐ (4.6/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👩‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Lisa Anderson</h4>
+            <p class="team-role">Cardiology</p>
+            <p class="team-bio">DD, Interventional Cardiology | 10 Years</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.8/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👨‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Robert Brown</h4>
+            <p class="team-role">Neurology</p>
+            <p class="team-bio">MD, DM Neurology | 18 Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.7/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👩‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Priya Sharma</h4>
+            <p class="team-role">Obstetrician</p>
+            <p class="team-bio">MD, DGO | 11 Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.9/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-image">👨‍⚕️</div>
+          <div class="team-info">
+            <h4>Dr. Vikram Singh</h4>
+            <p class="team-role">Thoracic Surgery</p>
+            <p class="team-bio">MCh Thoracic | 16 Years Experience</p>
+            <p style="font-size: 0.9rem; color: var(--accent-green); margin: 0.5rem 0;">⭐⭐⭐⭐⭐ (4.8/5)</p>
+            <a href="patient-resources.html#booking" class="btn btn-small btn-primary" style="width: 100%;">Book Appointment</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: var(--light-blue); padding: var(--spacing-lg); border-radius: 12px; text-align: center;">
+        <h3 style="color: var(--primary-blue); margin: 0 0 var(--spacing-md) 0;">80+ Expert Doctors on Board</h3>
+        <p>All our doctors are board-certified with international training and years of clinical experience</p>
+        <a href="patient-resources.html#booking" class="btn btn-primary">Book with Your Preferred Doctor</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">All Services</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="diagnostics.html">Diagnostics</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="patient-resources.html#booking">Book Appointment</a></li>
+            <li><a href="emergency-contact.html">Emergency</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📞 08039433142<br>📧 ikwulonoisaac1979@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <form class="footer-newsletter">
+            <input type="email" placeholder="Your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 ENNY MEDICAL AND DIAGNOSTICS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/search.js"></script>
+</body>
+</html>

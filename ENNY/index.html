@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ENNY MEDICAL AND DIAGNOSTICS - Your Health, Our Priority. Premium healthcare services with expert doctors and advanced diagnostics.">
+  <meta name="keywords" content="hospital, medical, healthcare, diagnostics, doctors, appointments">
+  <meta name="author" content="ENNY Medical">
+  <title>ENNY Medical & Diagnostics - Your Health, Our Priority</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Segoe+UI:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    #user-menu {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Emergency Banner -->
+  <div class="emergency-banner">
+    <div class="container flex-between">
+      <span>🚨 24/7 EMERGENCY CARE AVAILABLE</span>
+      <span class="emergency-contact-display">📞 09023840750</span>
+    </div>
+  </div>
+
+  <!-- Header Top -->
+  <div class="header-top">
+    <div class="container">
+      <div class="header-contacts">
+        <span>📞 08039433142</span>
+        <span>📧 ikwulonoisaac1979@gmail.com</span>
+        <span>🕐 Mon - Sat: 8AM - 8PM</span>
+      </div>
+      <div class="header-social">
+        <a href="#" aria-label="Facebook" title="Facebook">f</a>
+        <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header>
+    <div class="header-main">
+      <div class="container flex-between">
+        <div class="logo">
+          <img src="assets/images/enny.jpg" alt="ENNY Medical Logo" class="logo-img">
+        </div>
+        
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a href="#">About</a>
+              <div class="dropdown-menu">
+                <a href="pages/about.html">About Us</a>
+                <a href="pages/about.html#our-team">Leadership Team</a>
+                <a href="pages/about.html#accreditations">Accreditations</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href="#">Services</a>
+              <div class="dropdown-menu">
+                <a href="pages/services.html">All Services</a>
+                <a href="pages/services.html#general">General Medicine</a>
+                <a href="pages/services.html#cardiology">Cardiology</a>
+                <a href="pages/services.html#pediatrics">Pediatrics</a>
+              </div>
+            </li>
+            <li><a href="pages/departments.html">Departments</a></li>
+            <li><a href="pages/doctors.html">Doctors</a></li>
+            <li><a href="pages/diagnostics.html">Diagnostics</a></li>
+            <li class="dropdown">
+              <a href="#">Patient Portal</a>
+              <div class="dropdown-menu">
+                <a href="pages/patient-resources.html">Resources</a>
+                <a href="pages/patient-resources.html#booking">Book Appointment</a>
+                <a href="pages/patient-resources.html#records">Medical Records</a>
+              </div>
+            </li>
+            <li><a href="pages/news.html">News</a></li>
+            <li><a href="pages/emergency-contact.html">Emergency</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-cta" style="display: flex; gap: var(--spacing-md); align-items: center; position: relative;">
+          <a href="pages/patient-resources.html#booking" class="btn btn-primary">Book Appointment</a>
+          <a href="pages/emergency-contact.html" class="btn btn-secondary">Emergency</a>
+          <div id="auth-link" style="position: relative;">
+            <a href="pages/login.html">🔐 Login / Sign Up</a>
+          </div>
+          <div id="user-menu"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Your Health, Our Priority</h1>
+          <p class="hero-tagline">Excellence in Healthcare, Care Beyond Measure</p>
+          <p class="hero-description">
+            At ENNY MEDICAL AND DIAGNOSTICS, we are committed to providing world-class healthcare services with compassionate care, advanced technology, and a team of highly qualified medical professionals dedicated to your well-being.
+          </p>
+          <div class="hero-cta">
+            <a href="pages/patient-resources.html#booking" class="btn btn-outline btn-large">
+              📅 Schedule Consultation
+            </a>
+            <a href="pages/diagnostics.html" class="btn btn-outline btn-large">
+              🔬 Book Diagnostics
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div style="background: linear-gradient(135deg, #0066cc, #00b386); width: 100%; height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 100px;">
+            ⚕️
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links Section -->
+  <section class="quick-links">
+    <div class="container">
+      <div class="quick-links-grid">
+        <div class="quick-link-card">
+          <div class="quick-link-icon">📞</div>
+          <h3>Emergency Hotline</h3>
+          <p>Available 24/7 for urgent medical needs</p>
+          <a href="pages/emergency-contact.html" class="btn btn-small btn-primary">Call Now</a>
+        </div>
+        <div class="quick-link-card">
+          <div class="quick-link-icon">📅</div>
+          <h3>Book Appointment</h3>
+          <p>Schedule with our experienced doctors</p>
+          <a href="pages/patient-resources.html#booking" class="btn btn-small btn-primary">Book Now</a>
+        </div>
+        <div class="quick-link-card">
+          <div class="quick-link-icon">🔬</div>
+          <h3>Online Test Booking</h3>
+          <p>Order diagnostics from home</p>
+          <a href="pages/diagnostics.html" class="btn btn-small btn-primary">Book Test</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Highlight Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Services</h2>
+        <p class="section-subtitle">Comprehensive healthcare solutions tailored to your needs</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💉</div>
+          <h3>General Medicine</h3>
+          <p>Expert care for routine health checkups and common illnesses with compassionate doctors.</p>
+          <a href="pages/services.html#general">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">❤️</div>
+          <h3>Cardiology</h3>
+          <p>Advanced heart and cardiovascular treatments by renowned cardiologists.</p>
+          <a href="pages/services.html#cardiology">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔬</div>
+          <h3>Diagnostics</h3>
+          <p>State-of-the-art diagnostic testing including blood work, imaging, and more.</p>
+          <a href="pages/diagnostics.html">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏥</div>
+          <h3>Emergency Care</h3>
+          <p>24/7 emergency services with fully equipped trauma centers and ICUs.</p>
+          <a href="pages/emergency-contact.html">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">👶</div>
+          <h3>Pediatrics</h3>
+          <p>Specialized care for infants, children, and adolescents with modern facilities.</p>
+          <a href="pages/services.html#pediatrics">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🩺</div>
+          <h3>Specialized Surgery</h3>
+          <p>Advanced surgical procedures by expert surgeons in state-of-the-art operating rooms.</p>
+          <a href="pages/services.html#surgery">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📸</div>
+          <h3>Radiology</h3>
+          <p>X-Ray, MRI, CT Scan, and Ultrasound imaging with precise diagnostic capabilities.</p>
+          <a href="pages/diagnostics.html#imaging">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💊</div>
+          <h3>Pharmacy</h3>
+          <p>Fully stocked pharmacy with medicines, vaccines, and pharmacy counseling services.</p>
+          <a href="pages/services.html#pharmacy">Learn More →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🧬</div>
+          <h3>Laboratory</h3>
+          <p>Advanced laboratory testing with accurate and timely results delivered securely.</p>
+          <a href="pages/diagnostics.html#lab">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--spacing-xl);">
+        <a href="pages/services.html" class="btn btn-primary btn-large">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Showcase -->
+  <section class="features-showcase">
+    <div class="container">
+      <div class="feature-item">
+        <div class="feature-image">
+          <div style="background: linear-gradient(135deg, #0066cc, #00b386); width: 100%; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 80px;">
+            🏥
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Modern Infrastructure</h3>
+          <p>Our state-of-the-art facilities are equipped with the latest medical technology to ensure the best patient outcomes.</p>
+          <ul class="feature-list">
+            <li>500-bed capacity hospital</li>
+            <li>16 fully equipped operating theaters</li>
+            <li>Advanced ICU facilities</li>
+            <li>24/7 emergency department</li>
+            <li>Modern diagnostic center</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-image">
+          <div style="background: linear-gradient(135deg, #0066cc, #00b386); width: 100%; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 80px;">
+            👨‍⚕️
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Expert Medical Team</h3>
+          <p>Our highly qualified doctors and healthcare professionals are dedicated to providing compassionate and comprehensive care.</p>
+          <ul class="feature-list">
+            <li>80+ experienced doctors</li>
+            <li>Board-certified specialists</li>
+            <li>International training & exposure</li>
+            <li>Continuous medical education</li>
+            <li>Patient-centric approach</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-image">
+          <div style="background: linear-gradient(135deg, #0066cc, #00b386); width: 100%; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 80px;">
+            🔬
+          </div>
+        </div>
+        <div class="feature-content">
+          <h3>Advanced Diagnostics</h3>
+          <p>Cutting-edge diagnostic services for accurate and early disease detection with personalized treatment plans.</p>
+          <ul class="feature-list">
+            <li>3D/4D Ultrasound</li>
+            <li>High-field MRI (3 Tesla)</li>
+            <li>64-slice CT Scanner</li>
+            <li>Digital X-ray systems</li>
+            <li>Advanced laboratory testing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3 data-count="50000">0</h3>
+          <p class="stat-label">Happy Patients</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="80">0</h3>
+          <p class="stat-label">Expert Doctors</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="25">0</h3>
+          <p class="stat-label">Years Experience</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="16">0</h3>
+          <p class="stat-label">Operation Theaters</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Patient Testimonials</h2>
+        <p class="section-subtitle">Real stories from our valued patients</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">RK</div>
+            <div class="testimonial-info">
+              <h4>Rajesh Kumar</h4>
+              <p class="testimonial-role">Heart Surgery Patient</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-text">
+            "ENNY MEDICAL provided exceptional care during my heart surgery. The doctors were highly professional, and the staff was incredibly supportive. I highly recommend this hospital!"
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">PS</div>
+            <div class="testimonial-info">
+              <h4>Priya Sharma</h4>
+              <p class="testimonial-role">General Checkup Patient</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-text">
+            "From appointment booking to the actual visit, everything was seamless. The doctors listened carefully and provided personalized treatment plans. Thank you!"
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar">AM</div>
+            <div class="testimonial-info">
+              <h4>Arun Mishra</h4>
+              <p class="testimonial-role">Orthopedic Treatment Patient</p>
+            </div>
+          </div>
+          <div class="testimonial-rating">★★★★★</div>
+          <p class="testimonial-text">
+            "The orthopedic team is outstanding! My recovery was faster than expected. The rehabilitation support and follow-up care were exceptional. Truly world-class!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="background: linear-gradient(135deg, #0066cc, #00b386); color: white; text-align: center; padding: var(--spacing-xxl) 0;">
+    <div class="container">
+      <h2 style="color: white;">Ready to Take Control of Your Health?</h2>
+      <p style="font-size: var(--font-size-large); margin-bottom: var(--spacing-lg);">
+        Schedule your appointment today with our expert medical team
+      </p>
+      <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+        <a href="pages/patient-resources.html#booking" class="btn btn-outline btn-large" style="border-color: white; color: white;">
+          📅 Book Appointment
+        </a>
+        <a href="pages/emergency-contact.html" class="btn btn-outline btn-large" style="border-color: white; color: white;">
+          📞 Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>About ENNY</h4>
+          <ul>
+            <li><a href="pages/about.html">About Us</a></li>
+            <li><a href="pages/about.html#history">Our History</a></li>
+            <li><a href="pages/about.html#mission">Mission & Vision</a></li>
+            <li><a href="pages/careers.html">Careers</a></li>
+            <li><a href="pages/news.html">News & Updates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="pages/services.html">All Services</a></li>
+            <li><a href="pages/departments.html">Departments</a></li>
+            <li><a href="pages/doctors.html">Find a Doctor</a></li>
+            <li><a href="pages/diagnostics.html">Diagnostics</a></li>
+            <li><a href="pages/patient-resources.html">Patient Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="pages/patient-resources.html#booking">Book Appointment</a></li>
+            <li><a href="pages/emergency-contact.html">Emergency</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/patient-resources.html#faq">FAQs</a></li>
+            <li><a href="pages/testimonials.html">Testimonials</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Subscribe to our newsletter for health tips and updates</p>
+          <form class="footer-newsletter">
+            <input type="email" placeholder="Your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 ENNY MEDICAL AND DIAGNOSTICS. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/appointments.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login & Sign Up - ENNY Medical Patient Portal">
+  <meta name="author" content="ENNY Medical">
+  <title>Login / Sign Up - ENNY Medical & Diagnostics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .auth-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+      padding: var(--spacing-lg);
+    }
+
+    .auth-box {
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow-xl);
+      max-width: 450px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .auth-header {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      color: white;
+      padding: var(--spacing-xl);
+      text-align: center;
+    }
+
+    .auth-header h1 {
+      margin: 0;
+      font-size: 28px;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .auth-header p {
+      margin: 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .auth-body {
+      padding: var(--spacing-xl);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: var(--spacing-sm);
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: var(--spacing-md);
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color var(--transition-normal);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .form-input:disabled {
+      background: #f5f5f5;
+      color: #999;
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 13px;
+      margin-top: var(--spacing-xs);
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .form-input.error {
+      border-color: #dc3545;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: var(--spacing-md);
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      margin-top: var(--spacing-md);
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      background: var(--secondary-blue);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-toggle {
+      text-align: center;
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-lg);
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .form-toggle p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--dark-gray);
+    }
+
+    .form-toggle a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .form-toggle a:hover {
+      text-decoration: underline;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .success-message {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: var(--spacing-md);
+      border-radius: 8px;
+      margin-bottom: var(--spacing-lg);
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .password-toggle {
+      position: relative;
+    }
+
+    .password-toggle-btn {
+      position: absolute;
+      right: var(--spacing-md);
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--primary-blue);
+      font-size: 18px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: var(--spacing-lg);
+    }
+
+    .back-link a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      color: var(--primary-blue);
+      font-size: 14px;
+    }
+
+    .loading.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <!-- Login Form -->
+      <div class="form-section active" id="login-section">
+        <div class="auth-header">
+          <h1>Welcome Back</h1>
+          <p>Login to your ENNY Medical account</p>
+        </div>
+        <div class="auth-body">
+          <div class="success-message" id="login-success">✓ Login successful! Redirecting...</div>
+          
+          <form id="login-form" onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input 
+                type="email" 
+                id="login-email" 
+                class="form-input" 
+                placeholder="you@example.com"
+                required
+              >
+              <div class="error-message" id="login-email-error"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Password *</label>
+              <div class="password-toggle">
+                <input 
+                  type="password" 
+                  id="login-password" 
+                  class="form-input" 
+                  placeholder="Enter your password"
+                  required
+                >
+                <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('login-password')">👁️</button>
+              </div>
+              <div class="error-message" id="login-password-error"></div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="login-btn">Login</button>
+            <div class="loading" id="login-loading">Logging in...</div>
+          </form>
+
+          <div class="form-toggle">
+            <p>Don't have an account? <a onclick="toggleForms()">Sign Up</a></p>
+          </div>
+
+          <div class="back-link">
+            <a href="../index.html">← Back to Home</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form-section" id="signup-section">
+        <div class="auth-header">
+          <h1>Create Account</h1>
+          <p>Join ENNY Medical today</p>
+        </div>
+        <div class="auth-body">
+          <div class="success-message" id="signup-success">✓ Account created! Logging in...</div>
+          
+          <form id="signup-form" onsubmit="handleSignup(event)">
+            <div class="form-group">
+              <label class="form-label">Full Name *</label>
+              <input 
+                type="text" 
+                id="signup-name" 
+                class="form-input" 
+                placeholder="Your full name"
+                required
+              >
+              <div class="error-message" id="signup-name-error"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input 
+                type="email" 
+                id="signup-email" 
+                class="form-input" 
+                placeholder="you@example.com"
+                required
+              >
+              <div class="error-message" id="signup-email-error"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Password *</label>
+              <div class="password-toggle">
+                <input 
+                  type="password" 
+                  id="signup-password" 
+                  class="form-input" 
+                  placeholder="At least 6 characters"
+                  required
+                >
+                <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('signup-password')">👁️</button>
+              </div>
+              <div class="error-message" id="signup-password-error"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Confirm Password *</label>
+              <div class="password-toggle">
+                <input 
+                  type="password" 
+                  id="signup-confirm" 
+                  class="form-input" 
+                  placeholder="Confirm your password"
+                  required
+                >
+                <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('signup-confirm')">👁️</button>
+              </div>
+              <div class="error-message" id="signup-confirm-error"></div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="signup-btn">Create Account</button>
+            <div class="loading" id="signup-loading">Creating account...</div>
+          </form>
+
+          <div class="form-toggle">
+            <p>Already have an account? <a onclick="toggleForms()">Login</a></p>
+          </div>
+
+          <div class="back-link">
+            <a href="../index.html">← Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    // Toggle between login and signup forms
+    function toggleForms() {
+      const loginSection = document.getElementById('login-section');
+      const signupSection = document.getElementById('signup-section');
+      
+      loginSection.classList.toggle('active');
+      signupSection.classList.toggle('active');
+      
+      // Clear forms when switching
+      document.getElementById('login-form').reset();
+      document.getElementById('signup-form').reset();
+      clearAllErrors();
+    }
+
+    // Toggle password visibility
+    function togglePasswordVisibility(fieldId) {
+      const field = document.getElementById(fieldId);
+      field.type = field.type === 'password' ? 'text' : 'password';
+    }
+
+    // Clear all error messages
+    function clearAllErrors() {
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.classList.remove('show');
+        el.textContent = '';
+      });
+      document.querySelectorAll('.form-input').forEach(el => {
+        el.classList.remove('error');
+      });
+    }
+
+    // Handle login
+    function handleLogin(e) {
+      e.preventDefault();
+      clearAllErrors();
+
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      const loginBtn = document.getElementById('login-btn');
+      const loading = document.getElementById('login-loading');
+
+      loginBtn.disabled = true;
+      loading.classList.add('show');
+
+      // Simulate processing
+      setTimeout(() => {
+        const result = authSystem.login(email, password);
+
+        if (result.success) {
+          document.getElementById('login-success').classList.add('show');
+          setTimeout(() => {
+            window.location.href = 'patient-dashboard.html';
+          }, 1500);
+        } else {
+          result.errors.forEach(error => {
+            // Show generic error message
+            alert(error);
+          });
+          loginBtn.disabled = false;
+          loading.classList.remove('show');
+        }
+      }, 800);
+    }
+
+    // Handle signup
+    function handleSignup(e) {
+      e.preventDefault();
+      clearAllErrors();
+
+      const fullName = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const confirm = document.getElementById('signup-confirm').value;
+
+      const signupBtn = document.getElementById('signup-btn');
+      const loading = document.getElementById('signup-loading');
+
+      signupBtn.disabled = true;
+      loading.classList.add('show');
+
+      // Simulate processing
+      setTimeout(() => {
+        const result = authSystem.createAccount(fullName, email, password, confirm);
+
+        if (result.success) {
+          document.getElementById('signup-success').classList.add('show');
+          setTimeout(() => {
+            window.location.href = 'patient-dashboard.html';
+          }, 1500);
+        } else {
+          result.errors.forEach(error => {
+            alert(error);
+          });
+          signupBtn.disabled = false;
+          loading.classList.remove('show');
+        }
+      }, 800);
+    }
+
+    // Close error message on input
+    document.querySelectorAll('.form-input').forEach(input => {
+      input.addEventListener('focus', function() {
+        this.classList.remove('error');
+        const errorId = this.id + '-error';
+        const errorEl = document.getElementById(errorId);
+        if (errorEl) {
+          errorEl.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

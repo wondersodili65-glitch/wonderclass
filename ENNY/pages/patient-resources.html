@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Patient Resources - Book appointments, access medical records, FAQs at ENNY Medical">
+  <title>Patient Resources - ENNY Medical & Diagnostics</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  
+  <style>
+    #user-menu {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="emergency-banner">
+    <div class="container flex-between">
+      <span>🚨 24/7 EMERGENCY CARE AVAILABLE</span>
+      <span class="emergency-contact-display">📞 09023840750</span>
+        <span>📧 ikwulonoisaac1979@gmail.com</span>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-main">
+      <div class="container flex-between">
+        <div class="logo">
+          <img src="../assets/images/enny.jpg" alt="ENNY Medical Logo" class="logo-img">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="diagnostics.html">Diagnostics</a></li>
+            <li><a href="patient-resources.html">Patient Portal</a></li>
+            <li><a href="emergency-contact.html">Emergency</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a href="#booking" class="btn btn-primary">Book Appointment</a>
+          <a href="emergency-contact.html" class="btn btn-secondary">Emergency</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="padding: var(--spacing-xl) 0;">
+    <div class="container">
+      <h1 style="color: white; text-align: center;">Patient Portal & Resources</h1>
+      <p style="text-align: center; color: rgba(255, 255, 255, 0.9); font-size: var(--font-size-large);">Convenient healthcare at your fingertips</p>
+    </div>
+  </section>
+
+  <!-- Appointment Booking Section -->
+  <section id="booking" class="services-section">
+    <div class="container container-sm">
+      <div class="section-header">
+        <h2>📅 Book an Appointment</h2>
+        <p class="section-subtitle">Schedule your consultation with our expert doctors</p>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <form id="appointmentForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-input" name="patientName" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-input" name="patientEmail" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-input" name="patientPhone" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Select Doctor *</label>
+                <select id="doctorSelect" class="form-select" name="doctor" required>
+                  <option value="">Choose a doctor</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Preferred Date *</label>
+                <input type="date" id="appointmentDate" class="form-input" name="date" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Preferred Time *</label>
+                <select id="appointmentTime" class="form-select" name="time" required>
+                  <option value="">Select time</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Reason for Visit</label>
+              <textarea class="form-textarea" name="reason" placeholder="Describe your health concern..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Additional Notes</label>
+              <textarea class="form-textarea" name="notes" placeholder="Any additional information..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large btn-block">
+              📅 Confirm Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Medical Records Section -->
+  <section id="records" style="background-color: var(--light-gray); padding: var(--spacing-xxl) 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>🔐 Medical Records Portal</h2>
+        <p class="section-subtitle">Secure access to your health information</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color: white; margin: 0;">📋 View Records</h3>
+          </div>
+          <div class="card-body">
+            <p>Access all your medical records, test results, and consultation notes securely.</p>
+            <button class="btn btn-primary btn-block" onclick="alert('Please log in to patient portal')">Access Records</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color: white; margin: 0;">📥 Download Reports</h3>
+          </div>
+          <div class="card-body">
+            <p>Download and print your medical reports for your records or referrals.</p>
+            <button class="btn btn-primary btn-block" onclick="alert('Please log in to patient portal')">Download</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color: white; margin: 0;">💬 Message Doctor</h3>
+          </div>
+          <div class="card-body">
+            <p>Send secure messages to your doctor with follow-up questions.</p>
+            <button class="btn btn-primary btn-block" onclick="alert('Please log in to patient portal')">Message</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: white; padding: var(--spacing-lg); border-radius: 12px; border-left: 4px solid var(--accent-green); margin-top: var(--spacing-xl);">
+        <h3 style="color: var(--primary-blue);" id="login-section-title">Login to Your Patient Account</h3>
+        <p id="login-section-desc">Create an account or log in to manage your health information securely.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;" id="login-section-buttons">
+          <a href="login.html" class="btn btn-primary" style="text-decoration: none;">🔐 Login</a>
+          <a href="login.html" class="btn btn-outline" style="text-decoration: none;">📝 Create Account</a>
+        </div>
+        <div id="logged-in-section" style="display: none; margin-top: var(--spacing-md);">
+          <p style="color: var(--accent-green); font-weight: 600;">✓ You are logged in - access your account:</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: var(--spacing-md);">
+            <a href="patient-dashboard.html" class="btn btn-primary" style="text-decoration: none; display: inline-block;">📊 Go to Dashboard</a>
+            <a href="patient-profile.html" class="btn btn-secondary" style="text-decoration: none; display: inline-block;">⚙️ Edit Profile</a>
+            <a href="my-appointments.html" class="btn btn-outline" style="text-decoration: none; display: inline-block;">📅 My Appointments</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section id="faq" class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>❓ Frequently Asked Questions</h2>
+        <p class="section-subtitle">Common questions about our services</p>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <h4 style="cursor: pointer; color: var(--primary-blue); margin: 0;">How do I book an appointment?</h4>
+          <p style="margin-top: 0.5rem; display: none;">
+            You can book an appointment using the form above, calling us at 08039433142, or through our mobile app. You can select your preferred doctor, date, and time.
+          </p>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <h4 style="cursor: pointer; color: var(--primary-blue); margin: 0;">What are your visiting hours?</h4>
+          <p style="margin-top: 0.5rem; display: none;">
+            Outpatient Clinic: 8 AM - 8 PM, Monday to Saturday. Emergency Department: 24/7/365 days a year.
+          </p>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <h4 style="cursor: pointer; color: var(--primary-blue); margin: 0;">Do you accept insurance?</h4>
+          <p style="margin-top: 0.5rem; display: none;">
+            Yes, we accept all major insurance providers. Please contact our billing department for details.
+          </p>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <h4 style="cursor: pointer; color: var(--primary-blue); margin: 0;">How soon can I get test results?</h4>
+          <p style="margin-top: 0.5rem; display: none;">
+            Most results are available within 24 hours. Some urgent tests have results within 2-3 hours.
+          </p>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--border-gray); border-radius: 8px; padding: var(--spacing-lg); margin-bottom: var(--spacing-md);">
+          <h4 style="cursor: pointer; color: var(--primary-blue); margin: 0;">Can I reschedule or cancel an appointment?</h4>
+          <p style="margin-top: 0.5rem; display: none;">
+            Yes, you can reschedule or cancel up to 24 hours before your appointment. Contact us or use the patient portal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insurance Section -->
+  <section style="background-color: var(--light-gray); padding: var(--spacing-xxl) 0;">
+    <div class="container">
+      <div class="section-header">
+        <h2>💳 Insurance & Payment</h2>
+        <p class="section-subtitle">Flexible payment options for your convenience</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color: white; margin: 0;">Accepted Insurance Plans</h3>
+          </div>
+          <div class="card-body">
+            <ul style="list-style: none; padding: 0;">
+              <li>✓ National Health Insurance</li>
+              <li>✓ All Major Private Plans</li>
+              <li>✓ Employee Health Plans</li>
+              <li>✓ Government Policies</li>
+              <li>✓ Corporate Covers</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color: white; margin: 0;">Payment Methods</h3>
+          </div>
+          <div class="card-body">
+            <ul style="list-style: none; padding: 0;">
+              <li>✓ Credit/Debit Cards</li>
+              <li>✓ Digital Wallets</li>
+              <li>✓ Bank Transfers</li>
+              <li>✓ Installment Plans</li>
+              <li>✓ Cash Payment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloadable Forms -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>📄 Downloadable Forms</h2>
+        <p class="section-subtitle">Pre-fill forms before your visit</p>
+      </div>
+
+      <div class="grid-3">
+        <a href="#" class="card" style="text-decoration: none;">
+          <div class="card-body text-center">
+            <div style="font-size: 40px; margin-bottom: 1rem;">📋</div>
+            <h4 style="margin: 0 0 0.5rem 0;">Patient Registration</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Complete your patient profile</p>
+          </div>
+        </a>
+
+        <a href="#" class="card" style="text-decoration: none;">
+          <div class="card-body text-center">
+            <div style="font-size: 40px; margin-bottom: 1rem;">📝</div>
+            <h4 style="margin: 0 0 0.5rem 0;">Medical History Form</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Document your health history</p>
+          </div>
+        </a>
+
+        <a href="#" class="card" style="text-decoration: none;">
+          <div class="card-body text-center">
+            <div style="font-size: 40px; margin-bottom: 1rem;">✅</div>
+            <h4 style="margin: 0 0 0.5rem 0;">Consent Form</h4>
+            <p style="margin: 0; font-size: 0.9rem;">Medical treatment consent</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">All Services</a></li>
+            <li><a href="doctors.html">Find a Doctor</a></li>
+            <li><a href="diagnostics.html">Diagnostics</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#booking">Book Appointment</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="emergency-contact.html">Emergency</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📞 08039433142<br>📧 ikwulonoisaac1979@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <form class="footer-newsletter">
+            <input type="email" placeholder="Your email" required>
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 ENNY MEDICAL AND DIAGNOSTICS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add FAQ toggle functionality
+    document.querySelectorAll('.services-section h4').forEach(header => {
+      header.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        if (answer && answer.tagName === 'P') {
+          const isVisible = answer.style.display !== 'none';
+          answer.style.display = isVisible ? 'none' : 'block';
+          this.style.color = isVisible ? 'var(--primary-blue)' : 'var(--accent-green)';
+        }
+      });
+    });
+
+    // Check if user is logged in and update the login section
+    function updateLoginSection() {
+      if (typeof authSystem !== 'undefined' && authSystem.isLoggedIn()) {
+        const user = authSystem.getCurrentUser();
+        document.getElementById('login-section-title').textContent = '✓ Welcome, ' + user.fullName + '!';
+        document.getElementById('login-section-desc').textContent = 'You are logged in. Access your account below.';
+        document.getElementById('login-section-buttons').style.display = 'none';
+        document.getElementById('logged-in-section').style.display = 'block';
+      }
+    }
+
+    // Update on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', updateLoginSection);
+    } else {
+      updateLoginSection();
+    }
+  </script>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/appointments.js"></script>
+</body>
+</html>

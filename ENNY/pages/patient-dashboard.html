@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Patient Dashboard - ENNY Medical">
+  <meta name="author" content="ENNY Medical">
+  <title>Dashboard - ENNY Medical & Diagnostics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: var(--spacing-lg);
+      min-height: 100vh;
+      background: #f8f9fa;
+    }
+
+    .sidebar {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: 12px;
+      height: fit-content;
+      position: sticky;
+      top: var(--spacing-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar h3 {
+      margin: 0 0 var(--spacing-md) 0;
+      color: var(--primary-blue);
+      font-size: 16px;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .sidebar-menu a {
+      display: block;
+      padding: var(--spacing-sm) var(--spacing-md);
+      color: var(--dark-gray);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all var(--transition-normal);
+    }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .main-content {
+      padding: var(--spacing-lg);
+    }
+
+    .dashboard-header {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: 12px;
+      margin-bottom: var(--spacing-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dashboard-header h1 {
+      margin: 0;
+      color: var(--primary-blue);
+    }
+
+    .dashboard-header p {
+      margin: var(--spacing-sm) 0 0 0;
+      color: var(--dark-gray);
+      font-size: 14px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .stat-card {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      border-left: 4px solid var(--primary-blue);
+    }
+
+    .stat-card h3 {
+      margin: 0;
+      font-size: 32px;
+      color: var(--primary-blue);
+    }
+
+    .stat-card p {
+      margin: var(--spacing-sm) 0 0 0;
+      color: var(--dark-gray);
+      font-size: 14px;
+    }
+
+    .upcoming-appointments {
+      background: white;
+      padding: var(--spacing-lg);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .upcoming-appointments h2 {
+      margin: 0 0 var(--spacing-lg) 0;
+      color: var(--primary-blue);
+      font-size: 20px;
+    }
+
+    .appointment-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .appointment-item {
+      padding: var(--spacing-md);
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .appointment-info {
+      flex: 1;
+    }
+
+    .appointment-info strong {
+      display: block;
+      color: var(--primary-blue);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .appointment-info small {
+      color: var(--dark-gray);
+      display: block;
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .appointment-actions {
+      display: flex;
+      gap: var(--spacing-sm);
+    }
+
+    .no-data {
+      text-align: center;
+      padding: var(--spacing-lg);
+      color: var(--dark-gray);
+    }
+
+    .btn-small {
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: var(--light-blue);
+      color: var(--primary-blue);
+      transition: all var(--transition-normal);
+    }
+
+    .btn-small:hover {
+      background: var(--primary-blue);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Menu</h3>
+      <ul class="sidebar-menu">
+        <li><a href="patient-dashboard.html" class="active">📊 Dashboard</a></li>
+        <li><a href="my-appointments.html">📅 My Appointments</a></li>
+        <li><a href="patient-profile.html">⚙️ My Profile</a></li>
+        <li><a href="../pages/patient-resources.html">📋 Resources</a></li>
+        <li><a href="javascript:void(0)" onclick="logout()">🚪 Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Welcome, <span id="user-name">User</span>! 👋</h1>
+        <p>Here's your health dashboard overview</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 id="total-appointments">0</h3>
+          <p>Total Appointments</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="upcoming-count">0</h3>
+          <p>Upcoming Appointments</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="completed-count">0</h3>
+          <p>Completed Appointments</p>
+        </div>
+      </div>
+
+      <!-- Upcoming Appointments -->
+      <div class="upcoming-appointments">
+        <h2>Upcoming Appointments</h2>
+        <ul class="appointment-list" id="upcoming-list">
+          <li class="no-data">No upcoming appointments. <a href="../pages/patient-resources.html#booking" style="color: var(--primary-blue);">Book one now</a></li>
+        </ul>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="upcoming-appointments">
+        <h2>Quick Actions</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--spacing-md);">
+          <a href="../pages/patient-resources.html#booking" class="btn btn-primary" style="display: inline-block; text-align: center; padding: var(--spacing-md);">📅 Book Appointment</a>
+          <a href="patient-profile.html" class="btn btn-secondary" style="display: inline-block; text-align: center; padding: var(--spacing-md);">⚙️ Edit Profile</a>
+          <a href="../pages/diagnostics.html" class="btn btn-outline" style="display: inline-block; text-align: center; padding: var(--spacing-md);">🔬 Book Test</a>
+          <a href="../pages/doctors.html" class="btn btn-outline" style="display: inline-block; text-align: center; padding: var(--spacing-md);">👨‍⚕️ Find Doctor</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!authSystem.isLoggedIn()) {
+      window.location.href = 'login.html';
+    }
+
+    // Initialize dashboard
+    function initDashboard() {
+      const user = authSystem.getCurrentUser();
+      const profile = authSystem.getUserProfile(user.email);
+      const appointments = authSystem.getUserAppointments(user.email);
+
+      // Update user name
+      document.getElementById('user-name').textContent = user.fullName.split(' ')[0];
+
+      // Update stats
+      document.getElementById('total-appointments').textContent = appointments.length;
+      
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      
+      const upcoming = appointments.filter(apt => {
+        const aptDate = new Date(apt.date);
+        return aptDate >= today;
+      });
+      
+      const completed = appointments.filter(apt => {
+        const aptDate = new Date(apt.date);
+        return aptDate < today;
+      });
+
+      document.getElementById('upcoming-count').textContent = upcoming.length;
+      document.getElementById('completed-count').textContent = completed.length;
+
+      // Display upcoming appointments
+      const upcomingList = document.getElementById('upcoming-list');
+      if (upcoming.length === 0) {
+        upcomingList.innerHTML = '<li class="no-data">No upcoming appointments. <a href="../pages/patient-resources.html#booking" style="color: var(--primary-blue);">Book one now</a></li>';
+      } else {
+        upcomingList.innerHTML = upcoming.map(apt => `
+          <li class="appointment-item">
+            <div class="appointment-info">
+              <strong>Dr. ${apt.doctorName || 'TBA'}</strong>
+              <small>${apt.date || 'TBA'} at ${apt.time || 'TBA'}</small>
+              <small>${apt.reason || 'General Checkup'}</small>
+            </div>
+            <div class="appointment-actions">
+              <button class="btn-small" onclick="alert('Reschedule feature coming soon')">Reschedule</button>
+              <button class="btn-small" onclick="alert('Confirmation details will be sent to email')">Details</button>
+            </div>
+          </li>
+        `).join('');
+      }
+    }
+
+    // Initialize on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDashboard);
+    } else {
+      initDashboard();
+    }
+  </script>
+</body>
+</html>
